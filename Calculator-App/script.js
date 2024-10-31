@@ -8,18 +8,36 @@ function appendNumber(number) {
     else
         display.value += number;
 }
-
+let decimalDigit = 0;
 
 function appendOperator(operator) {
-    var lastCharacter = display.value.slice(-1)
-    if(!isNaN(lastCharacter)) //append the operator only if previously appended char is a number
+    const lastCharacter = display.value.slice(-1);
+
+    // Check if the operator is a decimal point
+    if (operator==='.') {
+        // If we already have a decimal, do not allow another
+        if (decimalDigit>=1) {
+            return;
+        } else {
+            decimalDigit += 1;
+        }
+    }
+
+    if (!isNaN(lastCharacter)) {
         display.value += operator;
-    else if(isNaN(lastCharacter) && lastCharacter!=operator) // if a new operator is selected, replace previous operator with new operator
-        display.value = display.value.slice(0, -1) + operator;        
+    } else if (isNaN(lastCharacter) && lastCharacter !== operator) {
+        // If a new operator is selected, replace the previous operator with the new operator
+        display.value = display.value.slice(0, -1) + operator;
+    }
 }
 
+// Reset the decimalDigit when a new number starts
+function resetDecimal() {
+    decimalDigit = 0; // Reset the decimal count
+}
 
 function clearDisplay() {
+    decimalDigit=0;
     display.value = '';
 }
 
@@ -31,11 +49,21 @@ function deleteLast() {
 
 function calculate() {
     try {
-        display.value = eval(display.value); 
+        let result = eval(display.value);
+
+        // Check if the result is a whole number
+        if (Number.isInteger(result)) {
+            display.value = result; // Display as is
+        } else {
+            // Round to 2 decimal places for non-integers
+            display.value = parseFloat(result).toFixed(2);
+        }
     } catch (error) {
         display.value = 'Error'; 
     }
 }
+
+
 
 function calculateSquareRoot() {
     const currentValue = parseFloat(display.value);
