@@ -3,12 +3,19 @@ const display = document.getElementById('display');
 
 
 function appendNumber(number) {
-    display.value += number;
+    if(display.value == 'Error')
+        display.value = number;
+    else
+        display.value += number;
 }
 
 
 function appendOperator(operator) {
-    display.value += operator;
+    var lastCharacter = display.value.slice(-1)
+    if(!isNaN(lastCharacter)) //append the operator only if previously appended char is a number
+        display.value += operator;
+    else if(isNaN(lastCharacter) && lastCharacter!=operator) // if a new operator is selected, replace previous operator with new operator
+        display.value = display.value.slice(0, -1) + operator;        
 }
 
 
@@ -23,18 +30,11 @@ function deleteLast() {
 
 
 function calculate() {
-    
-    display.classList.add('calculate-transition');
-    
-    setTimeout(() => {
-        try {
-            display.value = eval(display.value); 
-        } catch (error) {
-            display.value = 'Error'; 
-        }
-        
-        setTimeout(() => display.classList.remove('calculate-transition'), 400); 
-    }, 100); 
+    try {
+        display.value = eval(display.value); 
+    } catch (error) {
+        display.value = 'Error'; 
+    }
 }
 
 function calculateSquareRoot() {
@@ -50,7 +50,7 @@ function calculateSquareRoot() {
 window.addEventListener('keydown', function(e) {
     if (!isNaN(e.key)) {
         appendNumber(e.key); 
-    } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+    } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/' || e.key === '.' || e.key === '%') {
         appendOperator(e.key);
     } else if (e.key === 'Enter') {
         e.preventDefault();
