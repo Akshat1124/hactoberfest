@@ -37,6 +37,7 @@ function calculate() {
     }
 }
 
+//Squre Root of a number  ==> if the value is greater than or equal to 0 then do square root else if number is negative then display error.
 function calculateSquareRoot() {
     const currentValue = parseFloat(display.value);
     if (currentValue >= 0) {
