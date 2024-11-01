@@ -4,53 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stylish Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="calculator">
+        <header>Calculator App</header>
+        <input type="text" id="display" class="form-control" readonly>
+        <div class="row g-2 mt-3">
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('7')">7</button></div>
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('8')">8</button></div>
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('9')">9</button></div>
+            <div class="col-3"><button class="btn btn-warning operator w-100" onclick="appendOperator('+')">+</button></div>
 
-<div class="calculator">
-    <header> CALCULATOR APP </header>
-    <input type="text" id="display" readonly>
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('4')">4</button></div>
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('5')">5</button></div>
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('6')">6</button></div>
+            <div class="col-3"><button class="btn btn-warning operator w-100" onclick="appendOperator('-')">-</button></div>
 
-    <div class="buttons">
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('1')">1</button></div>
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('2')">2</button></div>
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('3')">3</button></div>
+            <div class="col-3"><button class="btn btn-warning operator w-100" onclick="appendOperator('*')">*</button></div>
 
-        <button class="number" onclick="appendNumber('7')">7</button>
-        <button class="number" onclick="appendNumber('8')">8</button>
-        <button class="number" onclick="appendNumber('9')">9</button>
-        <button class="operator" onclick="appendOperator('+')">+</button>
+            <div class="col-3"><button class="btn btn-light number w-100" onclick="appendNumber('0')">0</button></div>
+            <div class="col-3"><button class="btn btn-warning operator w-100" onclick="appendOperator('.')">.</button></div>
+            <div class="col-3"><button class="btn btn-warning operator w-100" onclick="appendOperator('%')">%</button></div>
+            <div class="col-3"><button class="btn btn-warning operator w-100" onclick="appendOperator('/')">/</button></div>
 
-        <button class="number" onclick="appendNumber('4')">4</button>
-        <button class="number" onclick="appendNumber('5')">5</button>
-        <button class="number" onclick="appendNumber('6')">6</button>
-        <button class="operator" onclick="appendOperator('-')">-</button>
-
-        <button class="number" onclick="appendNumber('1')">1</button>
-        <button class="number" onclick="appendNumber('2')">2</button>
-        <button class="number" onclick="appendNumber('3')">3</button>
-        <button class="operator" onclick="appendOperator('*')">*</button>
-
-        <button class="number" onclick="appendNumber('0')">0</button>
-        <button class="operator" onclick="appendOperator('.')">.</button>
-        <button class="operator" onclick="appendOperator('%')">%</button>
-        
-        <button class="operator" onclick="appendOperator('/')">/</button>
-        <button class="operator" onclick="calculateSquareRoot()">√</button>
-        <button class="function" onclick="clearDisplay()">AC</button>
-        <button class="function" onclick="deleteLast()">Del</button>
-        
-        <button class="equal" onclick="calculate()">=</button>
-        
-
-        
- </div>
-</div>
-
-<footer>
-    Created by Akshat Srivastava
-</footer>
-
-
-<script src="script.js"></script>
+            <div class="col-3"><button class="btn btn-secondary function w-100" onclick="calculateSquareRoot()">√</button></div>
+            <div class="col-3"><button class="btn btn-danger function w-100" onclick="clearDisplay()">AC</button></div>
+            <div class="col-3"><button class="btn btn-danger function w-100" onclick="deleteLast()">Del</button></div>
+            <div class="col-3"><button class="btn btn-success equal w-100" onclick="calculate()">=</button></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
