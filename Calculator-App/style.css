@@ -1,119 +1,77 @@
-
 body {
-    background:#333;
+    background-color: #282c34;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .calculator {
-    max-width: 350px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 20px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-}
-
-
-input[type="text"] {
-    width: 95%;     height: 80px;
-    background-color: #ececec;
-    border: none;
-    text-align: right;
-    padding: 5px 15px;
-    font-size: 28px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.1s ease, opacity 0.1s ease;
-    outline: none;
-}
-
-
-input[type="text"].calculate-transition {
-    transform: scale(1.1);
-    opacity: 0.8;         
-}
-
-
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 15px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 400px;
     width: 100%;
 }
 
+.calculator header {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #495057;
+}
 
-button {
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.calculator input[type="text"] {
+    width: 100%;
+    height: 60px;
+    font-size: 1.5rem;
+    text-align: right;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     outline: none;
 }
 
-
-button.number {
-    background-color: #fff;
-    color: #333;
-    border-radius: 50%; 
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.btn {
+    border-radius: 8px;
+    font-size: 1.2rem;
+    padding: 15px;
 }
 
-
-button.operator {
-    background-color: #f9a825;
-    color: white;
-    border-radius: 8px; 
-    padding: 20px 15px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.btn.number {
+    background-color: #ffffff;
+    color: #495057;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-button.function {
-    background-color: #d32f2f;
-    color: white;
-    border-radius: 25px; 
-    padding: 25px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.btn.operator {
+    background-color: #ff9800;
+    color: #ffffff;
 }
 
-
-button.equal {
-    background-color: #43a047;
-    color: white;
-    border-radius: 50px;
-    padding: 20px;
-    grid-column: span 1; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+.btn.function {
+    background-color: #dc3545;
+    color: #ffffff;
 }
 
-
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+.btn.equal {
+    background-color: #28a745;
+    color: #ffffff;
 }
 
-button:active {
-    transform: translateY(1px); 
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.text-container {
-    text-align: left;
-    margin: 0;
-    padding: 0; 
+.btn:hover {
+    transform: translateY(-2px);
+    transition: transform 0.1s ease-in-out;
 }
 
 footer {
-    color: #ffff;
+    text-align: center;
+    color: #adb5bd;
+    margin-top: 20px;
 }
-header {
-    font-weight: 900 ;
-    vertical-align: bottom;
-}
-
-
